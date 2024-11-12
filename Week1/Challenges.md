@@ -3,7 +3,9 @@ Git Branching:
 
 Exorcism:
     https://exercism.org/tracks/bash
-    
+
+Bash Cheat Sheet:
+	https://devhints.io/bash    
     
 exercises (with just the command line):
     1. create an empty file
