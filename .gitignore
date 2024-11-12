@@ -1,0 +1,9 @@
+*.env
+*.vs
+*/.vscode/*
+*.kate-swp
+Generated\ Files/*
+
+*.log
+*.obj
+*.bin
