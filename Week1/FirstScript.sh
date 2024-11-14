@@ -23,7 +23,6 @@ for (( i = 0 ; i < 100; i++ )); do
 done
 echo "$i"
 
-
 # while
 count=0
 while (( count < 3 )); do
@@ -36,7 +35,8 @@ for i in {1..5}; do
 	echo "range $i"
 done
 echo "$i"
-	
+
+
 # Conditionals
 
 # if conditionals must result in a true (1) or a false (0)
@@ -59,7 +59,6 @@ elif [[ 5 -eq $i ]]; then
 else 
 	echo "I hope this doens't run!"
 fi
-
 
 
 # Case/Switch 

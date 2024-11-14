@@ -45,4 +45,3 @@ function sum() {
 ARRAY_SUM=$(sum "${csv_array[@]}")
 echo "passing the first set of values to a function to calculate the sum of the values:"
 echo "$ARRAY_SUM"
-
