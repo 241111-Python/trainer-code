@@ -1,5 +1,10 @@
 #!/usr/bin/bash
 
+# Read a funciton from a different file
+source ./script_source.sh
+
+hello_world
+
 FILE="./../SourceData/samplearrays.csv"
 
 # Reading the first line of the data file, and printing it to terminal
@@ -15,6 +20,7 @@ do
 	echo "$value"
 done
 
+# Read the first line of data from the csv_array created in the last block
 echo "reading the first line as an array:"
 IFS=, read -ra csv_array <<< "$csv_data"
 for value in "${csv_array[@]}"; do
@@ -40,8 +46,3 @@ ARRAY_SUM=$(sum "${csv_array[@]}")
 echo "passing the first set of values to a function to calculate the sum of the values:"
 echo "$ARRAY_SUM"
 
-
-# Read a funciton from a different file
-source ./script_source.sh
-
-hello_world
