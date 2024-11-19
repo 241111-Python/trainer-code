@@ -32,4 +32,5 @@
 # 0 0 28-31 * * CMD
 # 0 23 28-31 * * [$(date -d +1day+%d) -eq 1 ] && CMD
 
+
 * * * * * /mnt/c/Revature/2118-241111-Python/trainer-code/Week1/cron/timestamp.sh
