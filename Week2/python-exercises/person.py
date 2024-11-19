@@ -15,16 +15,16 @@ class TestMethods(unittest.TestCase):
     def test_adam(self):
         print(1)
         adam = Person('Adam',19)
-        self.assertEquals(str(adam), 'Adam, 19 years old')
+        self.assertEqual(str(adam), 'Adam, 19 years old')
 
     def test_richard(self):
         print(2)
         richard = Person('Richard',22)
-        self.assertEquals(str(richard), 'Richard, 22 years old')
+        self.assertEqual(str(richard), 'Richard, 22 years old')
 
     def test_amount(self):
         print(3)
-        self.assertEquals(Person.amount, 2)
+        self.assertEqual(Person.amount, 2)
 
 
 if __name__ == '__main__':

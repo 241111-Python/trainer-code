@@ -14,27 +14,27 @@ class TestMethods(unittest.TestCase):
 
     def test_phone_1(self):
         valid_number = isphone_number('555-555-5555')
-        self.assertEquals(valid_number,True)
+        self.assertEqual(valid_number,True)
         
     def test_phone_2(self):
         valid_number = isphone_number('555!555 5555')
-        self.assertEquals(valid_number,True)
+        self.assertEqual(valid_number,True)
     
     def test_phone_3(self):
         valid_number = isphone_number('5b5-5a5-5555')
-        self.assertEquals(valid_number,False)
+        self.assertEqual(valid_number,False)
     
     def test_phone_4(self):
         valid_number = isphone_number('555-5a5-5555')
-        self.assertEquals(valid_number,False)
+        self.assertEqual(valid_number,False)
     
     def test_phone_5(self):
         valid_number = isphone_number('555-555-555')
-        self.assertEquals(valid_number,False)
+        self.assertEqual(valid_number,False)
 
     def test_phone_6(self):
         valid_number = isphone_number('5555-5555-5555')
-        self.assertEquals(valid_number,False)
+        self.assertEqual(valid_number,False)
 
     
 

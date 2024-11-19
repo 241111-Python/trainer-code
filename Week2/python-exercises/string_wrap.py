@@ -14,19 +14,19 @@ class TestMethods(unittest.TestCase):
 
     def test_string_wrap_1(self):
         result = wrap_around('a', 5)
-        self.assertEquals(result, 'abcde')
+        self.assertEqual(result, 'abcde')
         
     def test_string_wrap_2(self):
         result = wrap_around('x', 6)
-        self.assertEquals(result, 'xyzabc')
+        self.assertEqual(result, 'xyzabc')
     
     def test_string_wrap_3(self):
         result = wrap_around('G', 10)
-        self.assertEquals(result, 'GHIJKLMNOP')
+        self.assertEqual(result, 'GHIJKLMNOP')
     
     def test_string_wrap_4(self):
         result = wrap_around('A', 60)
-        self.assertEquals(result, 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGH')
+        self.assertEqual(result, 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGH')
     
 
 if __name__ == '__main__':
