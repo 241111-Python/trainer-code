@@ -4,7 +4,7 @@ import unittest
 # for USD. Numbers should be rounded to nearest hundreth
 
 def currency(value):
-    pass
+    return f"${value:.2f}"        
 
 ########################### TESTS ##############################################################
 class TestMethods(unittest.TestCase):

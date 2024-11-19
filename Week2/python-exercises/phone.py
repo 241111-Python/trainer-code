@@ -6,7 +6,12 @@ import unittest
 # any other chracter should be ignored
 
 def isphone_number(phone_number):
-    pass
+    if len(phone_number) != 12:
+        return False
+    for i in phone_number:
+        if i.isalpha():
+            return False
+    return True
 
 
 ########################### TESTS ##############################################################

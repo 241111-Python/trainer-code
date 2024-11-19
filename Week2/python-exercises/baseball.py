@@ -11,7 +11,31 @@ class InvalidInnning(Exception):
     pass
 
 def inning_to_outs(innings):
-    pass
+    valid_partial_innings = ["0", "1", "2"]
+    total_innings = 0
+    try:
+        innings_str = str(innings)
+        innings_split = innings_str.split('.')
+
+        if len(innings_split) > 2:
+            raise InvalidInnning
+
+        full_innings = innings_split[0]
+        total_innings += 3 * int(full_innings)
+
+        if len(innings_split) == 2:
+
+            partial_innings = innings_split[1]
+
+            if partial_innings not in valid_partial_innings:
+                raise InvalidInnning
+
+            total_innings += int(partial_innings)
+    except InvalidInnning as e:
+        print("Invalid innings!")
+
+    return total_innings
+
 
 ########################### TESTS ##############################################################
 class TestMethods(unittest.TestCase):

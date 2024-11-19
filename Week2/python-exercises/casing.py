@@ -7,8 +7,65 @@ import unittest
 # kebab-case example fire-truck
 
 # casing('registeredUser','camelCase','kebab-case') -> registered-user
+def to_kebab_case(words):
+    words = [word.lower() for word in words]
+    return "-".join(words)
+
+def to_snake_case(words):
+    return "_".join(words)
+
+def to_camel_case(words):
+    result = ""
+    for idx, word in enumerate(words):
+        if idx == 0:
+            result += word.lower()
+        else:
+            result += word.capitalize()
+    print("in to camel", result)
+    return result
+
+def to_pascal_case(words):
+    result = to_camel_case(words)
+    result = result[0].upper() + result[1:]
+    return result
+
+# casing('registeredUser','camelCase','kebab-case') -> registered-user
 def casing(word, initial, target):
-    pass
+    words = []
+
+    if initial == "kebab-case":
+        words = word.split("-")
+    elif initial == "snake_case":
+        words = word.split("_")
+    elif initial == "PascalCase" or initial == "camelCase":
+        current_word = ""
+        for idx, char in enumerate(word):
+            # Encountered a capital character. New work
+            if ord(char) < 97:
+                if current_word:
+                    words.append(current_word)
+                current_word = str(char)
+            else:
+                current_word += char
+        words.append(current_word)
+        
+    print(word, words, initial, target)
+
+    result = ""
+    if target == "kebab-case":
+        result = to_kebab_case(words)
+    elif target == "snake_case":
+        result = to_snake_case(words)
+    elif target == "PascalCase":
+        result = to_pascal_case(words)
+    elif target == "camelCase":
+        result = to_camel_case(words)
+    else:
+        raise InvalidInput
+
+    print(f"{result=}")
+
+    return result
 
 
 ########################### TESTS ##############################################################

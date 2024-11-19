@@ -7,7 +7,21 @@ import unittest
 # {'item':'stapler','base':11,'taxed':12.10},
 # {'item':'apple','base':1,'taxed':1.10}]
 def purchases(tax,*items):
-    pass
+    results = []
+    for item in items:
+        item_dict = {}
+        item_dict["item"] = item[0]
+        item_dict["base"] = item[1]
+
+        # Do tax calculation
+        item_dict["taxed"] = round(float(item[1]) * (1 + float(tax)/100), 2)
+
+        results.append(item_dict)
+
+    # lambda: anonymous/unnamed function, useful for tasks where we don't want to declare an entire function
+    # key - what value sorted uses to sort the list
+    # This line sorts the list in descending order by the taxed value of the item dictionaries
+    return sorted(results, key = lambda x: x["taxed"], reverse=True)
 
 
 ########################### TESTS ##############################################################
