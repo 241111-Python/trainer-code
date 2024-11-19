@@ -17,7 +17,7 @@ def wrap_around(s, n):
 
     # return wrap
     for i in range(n)
-        
+        wrap +=
     pass
 
 ########################### TESTS ##############################################################
