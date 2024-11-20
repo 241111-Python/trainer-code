@@ -51,3 +51,8 @@ print(my_list)
 # Join will "join" a set together on a delimeter
 print(''.join(my_list)) # we're using the empty string to join together the element of my_list. it's the glue!
 print(a_string * 4)
+
+print('{0[0]} / {0[1]} the next value is: {1} , and Alexis cats what to say: {2}'.format([1,2], 5, "hello"))
+
+output = f'{my_list} is a set of values realted to {b_string}'
+print(output)
