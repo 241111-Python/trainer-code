@@ -28,6 +28,10 @@ Technical Requirements:
 - Provide an option to the user to examine individual entries
 - Provide an option to the user to examine sets of similar data based on a sort and/or filter functionality
 
-**UPDATE**:
+**UPDATE 1**:
 - The application should analyze the objects in the program, and present statistically usefull information.
 - The application should be able to export the analysis to a file.
+
+**UPDATE 2**:
+- The application should be able to take in a filepath as a CLI pointing to a data file, allowing users to select from different data sets as needed (HINT: the data will all conform to the same shape/standard.)
+-  Set up a cronjob that calls your script and runs analysis that is then outputted to a file.
