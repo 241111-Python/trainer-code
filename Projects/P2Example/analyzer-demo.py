@@ -66,16 +66,50 @@ def export_analysis(analysis): # Taking in an analysis dictionary... formatted l
     
     print(f"Analysis exported to {filename}.")
 
-
+# View an individual data entry based on user input.
 def view_entry(data):
-    
-    # View an individual data entry based on user input.
     
     try:
         index = int(input(f"Enter the entry index (0 to {len(data) - 1}): "))
         print(json.dumps(data[index], indent=4))
     except (IndexError, ValueError):
         print("Invalid index! Please try again.")
+
+# Filter and sort the data based on user choices.
+def filter_data(data):
+    
+    
+    print("\nFilter options:")
+    print("1. Filter by date range")
+    print("2. Filter by minimum temperature range")
+    print("3. Filter by snowfall")
+    print("4. Sort by maximum temperature (descending)")
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        start_date = input("Enter start date (YYYY-MM-DD): ")
+        end_date = input("Enter end date (YYYY-MM-DD): ")
+        filtered = [
+            entry for entry in data
+            if start_date <= entry['date'] <= end_date
+        ]
+    elif choice == "2":
+        tmin_range = float(input("Enter minimum temperature threshold: "))
+        filtered = [
+            entry for entry in data
+            if entry['tmin'] >= tmin_range
+        ]
+    elif choice == "3":
+        filtered = [entry for entry in data if entry['snow'] > 0]
+    elif choice == "4":
+        filtered = sorted(data, key=lambda x: x['tmax'], reverse=True)
+    else:
+        print("Invalid choice!")
+        return
+
+    print(f"\nFiltered data ({len(filtered)} entries):")
+    for entry in filtered[:10]:  # Show first 10 results
+        print(json.dumps(entry, indent=4))
 
 
 def interactive_mode(data):
@@ -90,12 +124,9 @@ def interactive_mode(data):
         elif choice == "2":
             filter_data(data)
         elif choice == "3":
-            analysis = analyze_data(data)
+            analyze_data(data)
         elif choice == "4":
-            if 'analysis' in locals():
-                export_analysis(analysis)
-            else:
-                print("Perform analysis first!")
+            export_analysis(analyze_data(data))
         elif choice == "5":
             print("Exiting...")
             break
