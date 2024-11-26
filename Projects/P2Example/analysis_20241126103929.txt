@@ -1,0 +1,4 @@
+Average Min Temperature: 51.09
+Average Max Temperature: 72.30
+Total Precipitation: 268.42
+Maximum Recorded Snowfall: 7.00
