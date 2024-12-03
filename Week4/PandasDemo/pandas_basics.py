@@ -37,6 +37,20 @@ for row in new_row:
 output.seek(0) # returning the "cursor" to the top of the file object
 df = pd.read_csv(output, index_col=0)
 
+# don't forget about inplace= to decide if you're operating on the same objet, or producing a new one
+
+# a new object may be less space/memory effecient, but MAYBE faster(?)
+new_df = df.rename(columns={'Names': 'First Name'})
+# reusing the same object again saves memory, but may be slower(?)
+df.rename(columns={'Names': 'First Name'}, inplace=True)
+
+# Filter
+old_folks = df[df['Age'] > 30]
+# Filtering with Query syntax
+old_folks_again = df.query('Age > 30')
+
+# Reset the index
+old_folks_again.reset_index(drop=True, inplace=True)
 
 
-print(df)
+print(old_folks_again)
