@@ -13,6 +13,7 @@ Generated\ Files/*
 .venv
 env/
 venv/
+new_venv/
 ENV/
 env.bak/
 venv.bak/

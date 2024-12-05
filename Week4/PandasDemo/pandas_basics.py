@@ -1,6 +1,6 @@
 import pandas as pd
 
-#print("hello again everyone!")
+# print("hello again everyone!")
 
 # pandas comes with two structures that we can interact with: Series and DataFrames
 
@@ -23,6 +23,8 @@ new_row = {'Names': 'Jonathan', 'Age':28, 'City': 'Miami'}
 new_row_df = pd.DataFrame([new_row])
 df = pd.concat([df, new_row_df], ignore_index=True)
 
+
+# I know, usually the imports are done at the top of the file, but I didn't need it until now
 from csv import writer
 from io import StringIO #ByteIO let us treat the strings or the bytes like a file object - in memory - for reading and writing
 
@@ -30,7 +32,7 @@ output = StringIO()
 df.to_csv(output)
 csv_writer = writer(output)
 new_row = [[6, 'Charles', 30, 'Philadelphia'],[7,'Emily',35, 'Reston'],[8,'Kurt',40,'Reston']]
-#csv_writer.writerow(str(item) for item in new_row)
+# csv_writer.writerow(str(item) for item in new_row)
 for row in new_row:
 #    csv_writer.writerow(str(item) for item in row)
     csv_writer.writerow(row) #for item in row)
@@ -54,7 +56,7 @@ old_folks_again.reset_index(drop=True, inplace=True)
 
 # Add a new column of values
 df.insert(3, "Bonus", 80000)
-#df['Salary'] = 70000 # fill the column with one value
+# df['Salary'] = 70000 # fill the column with one value
 df['Salary'] = [50000, 60000, 70000, 65000, 55000, 80000, 850000, 100000, 110000] # fill a column with a list of values
 
 # Overwrite a single value (based on entry values)
@@ -73,7 +75,7 @@ df.replace({"Bonus": 80000}, 8000, inplace=True)
 df = df.sort_values(by='Age', ascending=False)
 
 # We can chain together methods if they return a value that the next method can accept!
-#print(old_folks.reset_index(drop=True).replace({'City': 'Reston'}, 'New York').sort_values(by='Age'))
+# print(old_folks.reset_index(drop=True).replace({'City': 'Reston'}, 'New York').sort_values(by='Age'))
 
 
 df['Salary'] = [50000, None, 70000, None, 55000, None, 85000, 100000, None]
