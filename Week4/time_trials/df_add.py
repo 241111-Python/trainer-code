@@ -21,10 +21,6 @@ def main():
     df_cat = pd.read_csv(seed)
     df_csv = pd.read_csv(seed)
 
-
-    # Oped the file, read the entries into the data list, then close the file.
-    # Any use of the source data will be from the data object for time consistency
-
     with open(path, "r") as file:
         reader = csv.reader(file)
 
@@ -32,8 +28,6 @@ def main():
             data.append(row)
         file.close()
 
-
-    # build the dataframe from source data, using .loc method
     tic = time.perf_counter()
     for row in data:
         df_loc.loc[len(df_loc)] = row
@@ -42,8 +36,6 @@ def main():
     loc_elapsed = toc - tic
     ave_loc = loc_elapsed / loc_count
 
-
-    # build the dataframe from source data, using .loc method
     tic = time.perf_counter()
     for row in data:
         df_cat = pd.concat([df_cat, pd.DataFrame([row])], ignore_index=True)
@@ -52,15 +44,13 @@ def main():
     cat_elapsed = toc - tic
     ave_cat = cat_elapsed / cat_count
 
-
-    # build the dataframe from the source, using
     output = StringIO()
     df_csv.to_csv(output)
     csv_writer = csv.writer(output)
     tic = time.perf_counter()
     for row in data:
         csv_writer.writerow(row)
-    output.seek(0) # we need to get back to the start of the StringIO
+    output.seek(0)
     df_csv = pd.read_csv(output, index_col=0)
     toc = time.perf_counter()
     csv_count = len(df_csv) -1
@@ -76,16 +66,6 @@ def main():
         print("loc_count = " + str(loc_count))
         print("cat_count = " + str(cat_count))
         print("csv_count = " + str(csv_count))
-
-
-        # tic = time.perf_counter()
-
-        # FUNCTION
-
-        # toc = time.perf_counter()
-        # elapsed = toc - tic
-
-
 
 if __name__ == "__main__":
     main()
