@@ -30,7 +30,7 @@ We will need a few basic commands to manage our environment, and the containers 
 ## A quickstart to running a postresql database.
 
 - In terminal run:  
-`docker run --name <container-name> -e POSGRES_PASSWORD=<DB-Password> -p 5432:5432 -d postgres`
+`docker run --name <container-name> -e POSTGRES_PASSWORD=<DB-Password> -p 5432:5432 -d postgres`
 
 - Connect using the connection manager of your choice (I like the PostgreSQL Explorer VS Code extension)
 
