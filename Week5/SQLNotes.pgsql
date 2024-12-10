@@ -20,7 +20,7 @@
     -- TCL - Transaction Control Language - Groups a set of executing commands into a "bundle"/a transaction. 
 
 /*
-This is a multi-line comment in SQL!
+    This is a multi-line comment in SQL!
 */
 
 -- DQL
@@ -88,3 +88,41 @@ SELECT customer_id, SUM(total) AS customer_total    -- return a table with the t
 -- SELECT
 -- ORDER BY
 
+SELECT * FROM customer;
+SELECT * FROM employee;
+
+-- QUERY(1)
+        -- QUERY(0)
+
+-- the artist who made the ablum with the longest title
+-- As a subquery
+SELECT name 
+    FROM artist 
+    WHERE artist_id = (
+        SELECT artist_id
+        FROM album
+        WHERE length(title) = (
+            SELECT length(title)
+                FROM album
+                ORDER BY length(title) DESC
+                LIMIT 1
+            )
+        );
+        
+-- As a join with a subquery
+SELECT name
+    FROM artist
+        INNER JOIN album ON artist.artist_id = album.artist_id
+    WHERE length(title) = (
+    SELECT length(title)
+        FROM album
+        ORDER BY length(title) DESC
+        LIMIT 1
+    );
+
+-- As a join 
+SELECT name
+    FROM artist
+        INNER JOIN album ON artist.artist_id = album.artist_id
+    ORDER BY length(title)  DESC
+    LIMIT 1;
